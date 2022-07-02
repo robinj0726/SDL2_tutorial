@@ -32,14 +32,12 @@ bool App::Init() {
     	return false;
     }
 
-    PrimarySurface = SDL_GetWindowSurface(Window);
-
-    if((Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED)) == NULL) {
+    if((Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)) == NULL) {
         Log("Unable to create renderer");
         return false;
     }
 
-    SDL_SetRenderDrawColor(Renderer, 0x00, 0x00, 0x00, 0xFF);
+    SDL_SetRenderDrawColor(Renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
     return true;
 }
